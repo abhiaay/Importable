@@ -1,0 +1,20 @@
+{
+    "name": "abhiaay/importable",
+    "description": "Laravel import with xlsx file",
+    "type": "library",
+    "require": {
+        "shuchkin/simplexlsx": "^1.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Abhiaay\\Importable\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Abhi Adhitya Yustho",
+            "email": "abhiyustho@gmail.com"
+        }
+    ]
+}
