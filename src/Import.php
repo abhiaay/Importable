@@ -58,7 +58,7 @@ abstract class Import
         }
     }
 
-    private function validate(array $row): ValidateResponse
+    protected function validate(array $row): ValidateResponse
     {
         foreach ($this->columns::cases() as $column) {
             $validateResponse = $this->doValidate($row, $column);
@@ -79,7 +79,7 @@ abstract class Import
         return count($this->errors) > 0;
     }
 
-    private function addError(int $row = null, string $column = null, string $message = null)
+    protected function addError(int $row = null, string $column = null, string $message = null)
     {
         $error = [];
 
@@ -87,13 +87,14 @@ abstract class Import
             $error['row'] = $row + 1;
         }
 
+        if (!empty($message)) {
+            $error['message'] = $message;
+        }
+
         if (!empty($column)) {
             $error['column'] = $column;
         }
 
-        if (!empty($message)) {
-            $error['message'] = $message;
-        }
 
         $this->errors[] = $error;
     }
